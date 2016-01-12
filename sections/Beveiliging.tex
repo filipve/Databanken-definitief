@@ -1,0 +1,49 @@
+\newpage
+\section{Beveiliging}
+
+\subsection{Wat is SQL injection?}
+
+We gaan in plaats van gewone waarden gaan we SQL code invullen met een formulier.
+
+\subsection{Wat is een oplossing voor SQL injection?}
+
+
+\begin{itemize}
+\item Escape character verwijderen uit de invoervelden
+\item Controleren of het invoerveld wel het juiste type heeft
+    
+\item Prepared statements
+\item Stored procedures
+\begin{itemize}
+        \item Type
+         \item ; en escaping
+        \item Grants
+        \item Dicht bij de bron
+        \item ...
+    \end{itemize}
+\end{itemize}
+
+\subsection{Hoe is SQL injection mogelijk?}
+
+\subsubsection{Incorrectly Filtered Escape Characters}
+
+Fout: input is niet gefilterd op escape characters
+
+Voorbeeld:
+
+\begin{itemize}
+\item statement := "SELECT * FROM users WHERE naam = '" + userNaam + "';"
+\item UserNaam:= a' or 't'='t
+\item Gevolg: SELECT * FROM users WHERE naam = 'a' or 't'='t';
+\end{itemize}
+
+\subsubsection{Incorrect Type Handling}
+
+Fout: types van de input worden niet gecheckt
+
+Voorbeeld:
+\begin{itemize}
+\item statement := "SELECT * FROM data WHERE id = "+ a + ";" (a wordt enkel verwacht als int)
+\item Voor a := 1;DROP TABLE users;
+\item Gevolg: SELECT * FROM data WHERE id = 1;DROP TABLE users;
+\end{itemize}

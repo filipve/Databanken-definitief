@@ -1,0 +1,82 @@
+\newpage
+
+\section{Hiërarchisch model  }
+
+Zie voor meer info in slides 09 \_ 2 \_ Hierarchisch (2).pdf
+
+\subsection{Wat zin de bouwstenen van een hiërarchisch model?}
+
+\begin{itemize}
+\item Segmenttypes
+\item Parent-child relationship-types
+\item Wortelsegment – bladeren
+\item n-m verbanden zijn niet toegelaten
+\end{itemize}
+
+\subsection{wat zijn de talen van de gegevensbanksystemen?}
+\begin{itemize}
+\item Gegevensdefinitietaal : DDL
+\item Gegevensmanipulatietaal : DML
+\end{itemize}
+
+
+\subsection{Wat zijn de functiecodes van de gegevensmanipulatietaal : DML?}
+
+GU = overloopt boom en stopt bij eerst gevonden segment\\\\
+
+\begin{theo}[Voorbeeld GU]{thm:GU}
+
+GU DOKTER(DFNAAM = DEPRET)
+
+       PATIENT
+
+GU DOKTER(DFNAAM = DEPRET)
+
+       PATIENT(PFNAAM = MAES)
+       
+       CONSULT(CDATUM = 16092005)
+
+\end{theo}
+
+
+
+
+\noindent GN : zoekt verder en stopt bij eerst gevonden segment
+
+Voorbeeld:
+
+GN PATIENT
+
+GN PATIENT(PFNAAM = MAES)
+
+
+\noindent GNP : zoekt verder maar alleen in de afhankelijke segmenten van een parent
+
+Voorbeeld:
+
+GU DOKTER (DNAAM = DEPRET)
+
+IF STATUS\_CODE = SPACE
+
+           DISPLAY I\_O\_DOKTER
+           
+           GNP PATIENT
+           
+           PERFORM UNTIL STATUS\_CODE NOT = SPACE
+           
+                   DISPLAY I\_O\_PATIENT
+                   
+                   GNP PATIENT
+                   
+            END-PERFORM
+END-IF
+
+\noindent GHU - GHN - GHNP : analoog maar H moet voor een delete of een replace
+
+Voorbeeld:
+
+GHU DOKTER (DNR = 12)
+
+DLET
+
+\subsection{Wat is het verschil tussen GN en GNP?}

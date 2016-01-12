@@ -1,0 +1,52 @@
+\newpage
+
+\section{Indexen}
+
+Zie pdf 07 \_ 1 \_ INDEXen.pdf
+
+\subsection{Wat is het doel van een index?}
+Beïnvloeden van de verwerkingstijd.
+\subsection{Wat zijn indexen? }
+
+\subsection{Wat is het verschil met een clustered index?}
+
+\subsection{Wat is een index? }
+Voordeel: index versnelt verwerking
+Nadeel:
+\begin{itemize}
+    \item Index neemt opslagruimte
+    \item Elke mutatie vraagt aanpassing van index => verwerking vertraagt
+\end{itemize}
+	
+\subsection{Wanneer gebruik en waarom? }
+
+\subsection{Geef een voorbeeld m.b.v de bijgevoegde SQL-tabellen}
+
+\subsection{Wat zijn de methodes voor het opzoeken?}
+
+\begin{itemize}
+\item Sequentiële zoekmethode : rij voor rij
+    \begin{itemize}
+        \item Tijdrovend en inefficiënt
+    \end{itemize}
+\item Geïndexeerde zoekmethode : index (B-tree)
+    \begin{itemize}
+        \item Boom
+        \item knooppunten
+        \item Leafpage
+        \item 2 methodes
+            \begin{itemize}
+            \item Zoeken van rijen met een bepaalde waarde
+            \item	Doorlopen van de hele tabel via een gesorteerde kolom (geclusterde index)
+             \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Welke speciale vormen van indexen bestaan er?}
+
+Multi-tabelindex = index op kolommen in meerdere tabellen\\\\
+Virtuele-kolomindex = index op een expressie\\\\
+Selectieve index = index op een gedeelte van de rijen\\\\
+Hash-index = index op basis van het adres op de pagina\\\\
+Bitmapindex = interessant als er veel dubbele waardes zijn

@@ -1,0 +1,22 @@
+\newpage
+
+\section{Muteren van tabellen}
+
+Zie slides 06 \_ 5 \_ create \_ en \_ ontwerp.pdf
+
+\subsection{Wat is zijn catalogustabellen? Kan je daar als SQL programmeur iets mee doen?}
+
+\begin{itemize}
+\item Vastleggen van de integriteitsregels gebeurt in de catalogustabellen
+\item Afhankelijk van het product
+\end{itemize}
+
+\subsection{Wat betekent CASCADE, RESTRICT en SET NULL?}
+
+Dit zijn 3 basismogelijkheden die bij UPDATE en DELETE worden gebruikt en toegepast. Dit is voor refererende acties.
+\begin{itemize}
+\item RESTRICT = verboden
+\item CASCADE = doorgetrokken naar de refererende tabel
+\item SET NULL = NULL waardes in de refererende tabel
+\end{itemize}
+RESTRICT is DEFAULT als je deze mogelijkheden niet expliciet toepast.
